@@ -1,0 +1,3 @@
+npm install -g apollo-codegen
+npm install -g apollo
+apollo-codegen introspect-schema https://startups-project-mytvsxrgeb.now.sh --output C:\Projetos\Android\TheStartUpFest\app\src\main\graphql\com\apollographql\apollo\sample\schema.json
