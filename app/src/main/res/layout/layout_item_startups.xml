@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margem_media"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_startups">
+
+    <ImageView
+        android:id="@+id/item_startup_ivLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/item_startup_tvNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_startup_ivLogo"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_startup_nome" />
+
+    <TextView
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/item_startup_tvSegmento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_startup_tvNome"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_startup_segmento" />
+
+
+</RelativeLayout>

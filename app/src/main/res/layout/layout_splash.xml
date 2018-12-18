@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_splash"
+    android:orientation="vertical"
+    tools:context=".atividades.SplashActivity">
+
+    <TextView
+        android:textAllCaps="true"
+        android:id="@+id/splash_tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAppearance="?android:textAppearanceLargeInverse"
+        android:textSize="@dimen/texto_extragrande" />
+
+</RelativeLayout>
+
