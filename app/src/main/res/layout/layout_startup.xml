@@ -24,12 +24,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/startup_icStartup"
-                android:layout_margin="@dimen/activity_vertical_margin">
+                android:layout_margin="@dimen/margem_media">
 
                 <View
                     android:id="@+id/startup_vwDetalhe"
                     android:layout_width="5dp"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/startup_tvDescricao"
+                    android:layout_alignBottom="@id/startup_tvDescricao"
                     android:layout_marginEnd="@dimen/margem_media"
                     android:background="@color/colorAccent" />
 
@@ -43,10 +45,10 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:layout_marginBottom="@dimen/margem_grande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/startup_rlDetalhes"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -62,7 +64,7 @@
                     style="?android:ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:layout_marginBottom="@dimen/margem_media"
                     android:isIndicator="true"
                     android:numStars="5"
                     android:rating="0.0"
@@ -81,7 +83,7 @@
                     style="?android:ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:layout_marginBottom="@dimen/margem_media"
                     android:isIndicator="true"
                     android:numStars="5"
                     android:rating="0.0"
@@ -100,7 +102,7 @@
                     style="?android:ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:layout_marginBottom="@dimen/margem_media"
                     android:isIndicator="true"
                     android:numStars="5"
                     android:rating="0.0"
