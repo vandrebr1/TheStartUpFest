@@ -19,4 +19,9 @@
 
     </style>
 
+    <style name="RatingBar" parent="@style/Theme.AppCompat">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/black_overlay</item>
+    </style>
+
 </resources>

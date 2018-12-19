@@ -2,5 +2,16 @@
     <string name="app_name">The StartUp Fest</string>
     <string name="item_startup_nome">NOME</string>
     <string name="item_startup_segmento">SEGMENTO</string>
+    <string name="main_escolhasuastartup">Escolha sua StartUP!</string>
+    <string name="main_falha">Falha ao conectar!</string>
+    <string name="main_tentarnovamente">Tentar novamente</string>
+
+    <string name="startup_descricao">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="startup_proposta">Proposta</string>
+    <string name="startup_apresentacao">Apresentação/Pitch</string>
+    <string name="startup_desenvolvimento">Desenvolvimento</string>
+
+    <string name="menu_main_ranking">Ranking mais votados</string>
+
 
 </resources>

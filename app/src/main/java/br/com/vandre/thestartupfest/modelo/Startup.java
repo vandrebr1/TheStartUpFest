@@ -1,6 +1,10 @@
 package br.com.vandre.thestartupfest.modelo;
 
-public class Startup {
+import java.io.Serializable;
+
+public class Startup implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String name;
     private int teamCount;
@@ -27,8 +31,10 @@ public class Startup {
     }
 
     public Segmento getSegmento() {
-        return segmento  == null ? new Segmento("", "") : segmento;
+        return segmento == null ? new Segmento("", "") : segmento;
     }
 
-
+    public String getDescription() {
+        return description;
+    }
 }

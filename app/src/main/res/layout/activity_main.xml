@@ -1,22 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginStart="@dimen/margem_media"
+    android:layout_marginTop="@dimen/margem_media"
+    android:layout_marginEnd="@dimen/margem_media"
+    android:layout_marginBottom="@dimen/margem_media"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/main_tvEscolhaSuaStartUP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margem_grande"
+        android:text="@string/main_escolhasuastartup"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <TextView
+        android:id="@+id/main_tvFalha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/margem_grande"
+        android:text="@string/main_falha"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+    <ProgressBar
+        android:id="@+id/main_pbConectando"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/main_btnTentarNovamente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_tvFalha"
+        android:layout_centerInParent="true"
+        android:text="@string/main_tentarnovamente" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_recycleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/main_tvEscolhaSuaStartUP"
         android:clipToPadding="false"
-        android:paddingBottom="30dp"
+        android:overScrollMode="never"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/layout_item_startups" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

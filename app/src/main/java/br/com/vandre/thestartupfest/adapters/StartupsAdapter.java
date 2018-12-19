@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
+import java.util.Collections;
+import java.util.List;
 
 import br.com.vandre.thestartupfest.R;
 import br.com.vandre.thestartupfest.modelo.Startup;
@@ -17,11 +19,12 @@ import br.com.vandre.thestartupfest.modelo.Startup;
 public class StartupsAdapter extends RecyclerView.Adapter<StartupsAdapter.ViewHolder> {
 
     private LayoutInflater layoutInflater;
-    List<Startup> startups;
+    List<Startup> startups = Collections.emptyList();
+    ;
 
-    public StartupsAdapter(Context context, List<Startup> startups) {
+    public StartupsAdapter(Context context) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.startups = startups;
+
     }
 
     @Override
@@ -37,9 +40,14 @@ public class StartupsAdapter extends RecyclerView.Adapter<StartupsAdapter.ViewHo
 
         final Startup startup = startups.get(position);
 
-        // holder.ivLogo.(pedidoItem.getProduto().getProduto());
+        Picasso.get()
+                .load(startup.getImageUrl())
+                .placeholder(R.color.colorAccent)
+                .error(R.color.black_overlay)
+                .into(holder.ivLogo);
+
         holder.tvNome.setText(startup.getName());
-        holder.tvSegmento.setText(String.valueOf(startup.getSegmento().getName()));
+        holder.tvSegmento.setText(startup.getSegmento().getName());
 
     }
 
@@ -61,4 +69,10 @@ public class StartupsAdapter extends RecyclerView.Adapter<StartupsAdapter.ViewHo
             tvSegmento = itemView.findViewById(R.id.item_startup_tvSegmento);
         }
     }
+
+    public void setStartups(List<Startup> startups) {
+        this.startups = startups;
+        this.notifyDataSetChanged();
+    }
+
 }

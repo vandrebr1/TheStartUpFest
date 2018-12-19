@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_padrao">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/startup_icStartup"
+                layout="@layout/layout_item_startups" />
+
+            <RelativeLayout
+                android:id="@+id/startup_rlDetalhes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/startup_icStartup"
+                android:layout_margin="@dimen/activity_vertical_margin">
+
+                <View
+                    android:id="@+id/startup_vwDetalhe"
+                    android:layout_width="5dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="@dimen/margem_media"
+                    android:background="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/startup_tvDescricao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/startup_vwDetalhe"
+                    android:text="@string/startup_descricao" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/margem_grande"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/startup_rlDetalhes"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/startup_tvProposta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/startup_proposta"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <RatingBar
+                    android:id="@+id/startup_rbProposta"
+                    style="?android:ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="0.0"
+                    android:stepSize="1.0"
+                    android:theme="@style/RatingBar" />
+
+                <TextView
+                    android:id="@+id/startup_tvApresentacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/startup_apresentacao"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <RatingBar
+                    android:id="@+id/startup_rbApresentacao"
+                    style="?android:ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="0.0"
+                    android:stepSize="1.0"
+                    android:theme="@style/RatingBar" />
+
+                <TextView
+                    android:id="@+id/startup_tvDesenvolvimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/startup_desenvolvimento"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <RatingBar
+                    android:id="@+id/startup_rbDesenvolvimento"
+                    style="?android:ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margem_grande"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="0.0"
+                    android:stepSize="1.0"
+                    android:theme="@style/RatingBar" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
+
