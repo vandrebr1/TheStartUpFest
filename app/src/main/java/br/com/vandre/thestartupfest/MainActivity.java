@@ -23,6 +23,8 @@ import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.apollographql.apollo.fetcher.ApolloResponseFetchers;
 import com.apollographql.apollo.sample.GetAllStartupsQuery;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,6 +35,7 @@ import java.util.List;
 import br.com.vandre.thestartupfest.adapters.StartupsAdapter;
 import br.com.vandre.thestartupfest.app.Constantes;
 import br.com.vandre.thestartupfest.app.TheStartUpFestAplicacao;
+import br.com.vandre.thestartupfest.atividades.RankingActivity;
 import br.com.vandre.thestartupfest.atividades.StartupActivity;
 import br.com.vandre.thestartupfest.listeners.RecyclerItemClickListener;
 import br.com.vandre.thestartupfest.modelo.Segmento;
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTentarNovamente;
     private TextView tvEscolhaSuaStartUP;
     private ProgressBar pbConectando;
+
+    DatabaseReference database;
 
 
     @Override
@@ -95,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 buscarStartups();
             }
         });
-
+        ocultarParaCarregar();
         buscarStartups();
 
     }
@@ -111,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
         startupsAdapter = new StartupsAdapter(MainActivity.this);
         recyclerView = findViewById(R.id.main_recycleview);
         app = (TheStartUpFestAplicacao) getApplication();
+        database = FirebaseDatabase.getInstance().getReference("startup");
+
     }
 
     private void buscarStartups() {
@@ -156,13 +163,24 @@ public class MainActivity extends AppCompatActivity {
 
         for (GetAllStartupsQuery.AllStartup entry : listastartups) {
             if (entry.Segment() != null) {
-                Startup startup = new Startup(entry.name(),
+                String nome;
+                nome = entry.name();
 
+                nome = nome.replace(".", " ")
+                        .replace("$", " ")
+                        .replace("#", " ")
+                        .replace("[", " ")
+                        .replace("]", " ");
+
+                Startup startup = new Startup(nome,
                         entry.teamCount(),
                         entry.description(),
                         entry.imageUrl(),
                         entry.annualReceipt(),
                         new Segmento(entry.Segment().code(), entry.Segment().name()));
+
+                database.child(nome).setValue(startup);
+
                 startups.add(startup);
             }
         }
@@ -217,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.action_maisvotados:
-                //startActivity(new Intent(MainActivity.this, LocalLoginActivity.class));
+                startActivity(new Intent(MainActivity.this, RankingActivity.class));
                 return true;
         }
 

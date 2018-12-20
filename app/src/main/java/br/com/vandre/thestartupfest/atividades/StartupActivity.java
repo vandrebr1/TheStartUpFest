@@ -35,7 +35,9 @@ public class StartupActivity extends AppCompatActivity {
     private RatingBar rbApresentacao;
     private RatingBar rbDesenvolvimento;
     private String id;
-    DatabaseReference databaseArtists;
+    private String startupNome;
+
+    DatabaseReference database;
 
 
     @Override
@@ -48,16 +50,18 @@ public class StartupActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //attaching value event listener
-        databaseArtists.addValueEventListener(new ValueEventListener() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("votos/" + id + "/" + startupNome);
+
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Voto voto = dataSnapshot.getValue(Voto.class);
 
-                //iterating through all the nodes
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
-                    Voto voto = postSnapshot.getValue(Voto.class);
-
+                if (voto != null) {
+                    rbProposta.setRating(voto.getVotoProposta());
+                    rbApresentacao.setRating(voto.getVotoApresentacao());
+                    rbDesenvolvimento.setRating(voto.getVotoDesenvolvimento());
                 }
             }
 
@@ -77,7 +81,7 @@ public class StartupActivity extends AppCompatActivity {
         rbApresentacao = findViewById(R.id.startup_rbApresentacao);
         rbDesenvolvimento = findViewById(R.id.startup_rbDesenvolvimento);
 
-        databaseArtists = FirebaseDatabase.getInstance().getReference("votos");
+        database = FirebaseDatabase.getInstance().getReference("votos");
 
         id = id(StartupActivity.this);
 
@@ -94,6 +98,11 @@ public class StartupActivity extends AppCompatActivity {
                 .into(ivLogo);
 
         tvNome.setText(startup.getName());
+        startupNome = tvNome.getText().toString().replace(".", " ")
+                .replace("$", " ")
+                .replace("#", " ")
+                .replace("[", " ")
+                .replace("]", " ");
         tvSegmento.setText(startup.getSegmento().getName());
         tvDescricao.setText(startup.getDescription());
 
@@ -150,10 +159,10 @@ public class StartupActivity extends AppCompatActivity {
         int votoProposta = (int) rbProposta.getRating();
         int votoApresentacao = (int) rbApresentacao.getRating();
         int votoDesenvolvimento = (int) rbDesenvolvimento.getRating();
-        String startupNome = tvNome.getText().toString();
+
         Voto voto = new Voto(id, startupNome, votoProposta, votoApresentacao, votoDesenvolvimento);
 
-        databaseArtists.child(id).child(startupNome).setValue(voto);
+        database.child(id).child(startupNome).setValue(voto);
 
     }
 
@@ -184,7 +193,7 @@ public class StartupActivity extends AppCompatActivity {
                 uniqueID = UUID.randomUUID().toString();
                 SharedPreferences.Editor editor = sharedPrefs.edit();
                 editor.putString(PREF_UNIQUE_ID, uniqueID);
-                editor.commit();
+                editor.apply();
             }
         }
         return uniqueID;

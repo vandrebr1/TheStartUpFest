@@ -12,6 +12,7 @@ import com.apollographql.apollo.cache.normalized.lru.EvictionPolicy;
 import com.apollographql.apollo.cache.normalized.lru.LruNormalizedCacheFactory;
 import com.apollographql.apollo.cache.normalized.sql.ApolloSqlHelper;
 import com.apollographql.apollo.cache.normalized.sql.SqlNormalizedCacheFactory;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +30,9 @@ public class TheStartUpFestAplicacao extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .build();
 

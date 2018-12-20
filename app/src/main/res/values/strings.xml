@@ -13,5 +13,14 @@
 
     <string name="menu_main_ranking">Ranking mais votados</string>
 
+    <string name="item_ranking_posicao">1º</string>
+    <string name="item_ranking_nome">Nome STARTUP</string>
+    <string name="item_ranking_segmento">Segmento STARTUP</string>
+    <string name="item_ranking_nota">5.0 / 5</string>
+
+
+    <string name="ranking_resultados">Resultados</string>
+
+
 
 </resources>

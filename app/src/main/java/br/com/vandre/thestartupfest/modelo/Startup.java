@@ -22,6 +22,9 @@ public class Startup implements Serializable {
         this.segmento = segmento;
     }
 
+    public Startup() {
+    }
+
     public String getName() {
         return name == null ? "" : name;
     }

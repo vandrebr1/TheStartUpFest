@@ -20,7 +20,6 @@ public class StartupsAdapter extends RecyclerView.Adapter<StartupsAdapter.ViewHo
 
     private LayoutInflater layoutInflater;
     List<Startup> startups = Collections.emptyList();
-    ;
 
     public StartupsAdapter(Context context) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

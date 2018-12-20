@@ -15,6 +15,9 @@ public class Voto {
         this.startupNome = startupNome;
     }
 
+    public Voto() {
+    }
+
     public String getUsuarioID() {
         return usuarioID == null ? "" : usuarioID;
     }
@@ -33,5 +36,16 @@ public class Voto {
 
     public String getStartupNome() {
         return startupNome;
+    }
+
+    @Override
+    public String toString() {
+        return "Voto{" +
+                "usuarioID='" + usuarioID + '\'' +
+                ", startupNome='" + startupNome + '\'' +
+                ", votoProposta=" + votoProposta +
+                ", votoApresentacao=" + votoApresentacao +
+                ", votoDesenvolvimento=" + votoDesenvolvimento +
+                '}';
     }
 }

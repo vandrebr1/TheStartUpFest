@@ -2,7 +2,7 @@
     android:shape="rectangle">
     <!-- This is the stroke you want to define -->
     <stroke
-        android:width="2dp"
+        android:width="1dp"
         android:color="@color/black_overlay" />
 
     <!-- Optional, round your corners -->

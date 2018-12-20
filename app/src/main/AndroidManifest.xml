@@ -29,6 +29,8 @@
         <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".atividades.StartupActivity"></activity>
+
+        <activity android:name=".atividades.RankingActivity"></activity>
     </application>
 
 </manifest>

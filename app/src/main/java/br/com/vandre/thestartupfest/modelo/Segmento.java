@@ -9,6 +9,9 @@ public class Segmento implements Serializable {
     private String code;
     private String name;
 
+    public Segmento() {
+    }
+
     public Segmento(String code, String name) {
         this.code = code;
         this.name = name;

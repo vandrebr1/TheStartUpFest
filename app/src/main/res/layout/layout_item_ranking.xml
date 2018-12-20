@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fundo_padrao"
+    android:padding="@dimen/margem_minima">
+
+    <TextView
+        android:id="@+id/item_ranking_tvPosicao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/margem_media"
+        android:layout_marginEnd="@dimen/margem_media"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_ranking_posicao"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
+    <ImageView
+        android:id="@+id/item_ranking_ivLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/margem_media"
+        android:layout_toEndOf="@id/item_ranking_tvPosicao"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/item_ranking_tvNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/item_ranking_ivLogo"
+        android:layout_marginEnd="@dimen/margem_media"
+        android:layout_toEndOf="@id/item_ranking_ivLogo"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_ranking_nome"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+    <TextView
+        android:id="@+id/item_ranking_tvSegmento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_ranking_tvNome"
+        android:layout_marginEnd="@dimen/margem_media"
+        android:layout_toEndOf="@id/item_ranking_ivLogo"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_ranking_segmento"
+        android:textAppearance="@android:style/TextAppearance.Small" />
+
+
+    <RatingBar
+        android:id="@+id/item_ranking_rbVotos"
+        style="?android:ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_ranking_tvSegmento"
+        android:layout_toEndOf="@id/item_ranking_ivLogo"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="0.0"
+        android:stepSize="1.0"
+        android:theme="@style/RatingBar" />
+
+    <TextView
+        android:id="@+id/item_ranking_tvNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_ranking_rbVotos"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margem_media"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/item_ranking_nota"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+
+</RelativeLayout>
